@@ -34,3 +34,5 @@ You think you're saving time, but Lean runs much slower, so if
 you play for long enough you'll have lost outright.
 
 [direct link to level 1 in the Lean web editor](https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2FImperialCollegeLondon%2Fgroup-action-exercises%2Fmaster%2Fsrc%2Flevel_1_groups.lean)
+
+[direct link to level 2 in the Lean web editor](https://leanprover-community.github.io/lean-web-editor/#url=https%3A%2F%2Fraw.githubusercontent.com%2FImperialCollegeLondon%2Fgroup-action-exercises%2Fmaster%2Fsrc%2Flevel_2_group_actions.lean)
