@@ -238,7 +238,7 @@ end
 
 example : (g * h) ⁻¹ = h⁻¹ * g⁻¹ := by library_search
 
-theorem big_theorem (h : ∀ (g : G), g^2 = 1) : ∀ a b : G, a * b = b * a := 
+theorem big_theorem (hyp : ∀ (g : G), g^2 = 1) : ∀ a b : G, a * b = b * a := 
 begin
   -- let a and b be arbitrary
   intros a b,
@@ -252,7 +252,7 @@ begin
     -- notice the square problem
     rw [← sq g],
     -- now it follows from h
-    apply h,
+    apply hyp,
     -- done
   },
   -- now the main proof. LHS is a * b, RHS is b * a. Let's work on LHS.
@@ -273,4 +273,8 @@ end
 -/
 
 -- think of a theorem. Doesn't matter if it's easy. All you need is
--- a maths proof, `library_search` and `rw` and you can do loads of things. 
+-- a maths proof, `library_search` and `rw` and you can do loads of things.
+-- Try proving that `g * h * 1 * h⁻¹ = g`. It might be harder
+-- than you think with rewrites! Try some tactics. Do you know about `simp`?
+
+
