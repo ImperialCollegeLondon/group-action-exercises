@@ -34,7 +34,7 @@ such as
 
 In this Lean file, I'll explain how to say "Let $G$ be a group" in Lean 3.
 
-## Section 1 : Let $G$ be a group.
+## Section 1.1 : Let $G$ be a group.
 
 Here's how we say "let $G$ be a group with `*` as group law" in Lean.
 
@@ -53,7 +53,7 @@ own stuff.
 
 /-
 
-## Exercise 1 : play with #check
+## Exercise 1.1 : play with #check
 
 `#check` tells you the type of a term. The computer science colon
 notation `g : G` is pronounced "`g` is a term of type `G`",
@@ -102,7 +102,7 @@ example : has_div.div g h = g / h := begin refl end
 
 /-
 
-## Section 2 : theorems about elements of a group
+## Section 1.2 : theorems about elements of a group
 
 The axioms of a group and theorems about groups in Lean look like
 `∀ g h k, (g * h) * k = g * (h * k)` and `∀ g, 1 * g = g`. It doesn't
@@ -134,7 +134,7 @@ which we use in mathlib when naming theorems in group theory.
 
 /-
 
-## Exercise 2 : playing with `library_search`
+## Exercise 1.2 : playing with `library_search`
 
 Remove all the sorrys below. Either use `library_search`, or, if you're
 feeling lucky, `exact <name_I_guessed>`. 
@@ -207,7 +207,7 @@ information for you to deduce that `h.mp` will be a proof of `P → Q`.
 
 /-
 
-## Section 3 : Prove some theorems!
+## Section 1.3 : Prove some theorems!
 
 Let's prove that if G is a group and if $g^2=1$ for all $g \in G$ then $G$
 is abelian.
@@ -268,7 +268,7 @@ end
 
 /-
 
-## Exercise 3 : Prove a theorem in group theory
+## Exercise 1.3 : Prove a theorem in group theory
 
 -/
 
