@@ -148,16 +148,21 @@ fill in boring parts of proofs if you want to experiment and don't want errors
 everywhere.
 -/
 
+variables {G g h k} -- don't need them explicit
+
+-- Try guessing this one
 example : 1 * g = g :=
 begin
   sorry
 end
 
-example : g = h * k⁻¹ ↔ g * k = h :=
+-- Try solving this one with `library_search`
+theorem foobar : g = h * k⁻¹ ↔ g * k = h :=
 begin
   sorry
 end
 
+-- Try library_search on this one too.
 example : g * k = h ↔ g = h * k⁻¹ :=
 begin
   sorry -- compare the name of this one with the last one.
