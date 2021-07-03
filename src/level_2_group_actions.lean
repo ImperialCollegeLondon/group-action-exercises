@@ -207,3 +207,12 @@ theorem orbit_eq_orbit_of_mem_inter (has : a ∈ orbit G s) (hat : a ∈ orbit G
 begin
   sorry,
 end
+
+open setoid
+
+-- This is very fiddly, I wouldn't worry too much about it, you've done
+-- the maths part, the rest is plumbing
+example : is_partition {𝒪 : set S | ∃ s, orbit G s = 𝒪} :=
+begin
+  sorry
+end
