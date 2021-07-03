@@ -12,14 +12,15 @@ import tactic
 # Level 1 : Groups
 
 In this level we demonstrate how a mathematician works with groups
-in Lean.
+in Lean. I will assume that the user has the basic group theory
+knowledge which would be taught in a first course at university.
 -/
 
 /-
 
 ## Introduction
 
-When a mathematician says "Let $(G,\times)$ be a group" they mean the following.
+When a mathematician says "Let $G$ be a group" they mean the following.
 They are postulating the existence of a `Type` (or a `Set`, it makes no
 difference) called `G`, which has
 
@@ -64,7 +65,8 @@ Can you make them `#check`?
 Tip : there should never be any *errors* in your file. Check on the
 bottom left that it says 0 by the x, and that there are no red dots
 on the right of that little scrollbar. If something doesn't work,
-just comment it out and leave a note.
+just comment it out and leave a note if you don't understand why.
+Don't leave the error in the file.
 
 -/
 
@@ -82,11 +84,11 @@ variables (G : Type) [group G] (g h k : G)
 
 ### Technical note
 
-Jump straight to Section 2 if you're just interested in the maths.
+Jump straight to Section 2 if you're only interested in the maths.
 
 In Lean, actual function names aren't allowed to contain fancy maths
 symbols and they always act on the left like $f(x,y)$ instead of being an
-infix operator like `*` which takes its arguments on either side.
+infix operator like `*` which takes its arguments one on either side.
 In fact `1`, `*`, `⁻¹` and even the lesser-used `/` are notation for the
 following functions:
 
@@ -102,18 +104,17 @@ example : has_div.div g h = g / h := begin refl end
 
 ## Section 2 : theorems about elements of a group
 
-The axioms of a group in Lean look like `∀ g h k, (g * h) * k = g * (h * k)`
-and `∀ g, 1 * g = g` if this is an axiom (doesn't matter if it's an axiom
-or a theorem, if you think about it -- we just need access to the proof!)
-
-If you want to use these axioms and theorems to prove stuff, the
-first thing you need to learn how to do is to find out what the names
-of all the theorems are. Here's two ways you can try to do it.
+The axioms of a group and theorems about groups in Lean look like
+`∀ g h k, (g * h) * k = g * (h * k)` and `∀ g, 1 * g = g`. It doesn't
+matter to us where that second one is an axiom or a theorem -- what we
+are concerned with right now is figuring out how to get access to the proofs
+of these useful-looking results. And to get access to them, you need
+to know their names.
 
 ### `library_search`
 
 If what you want is a (proof of a) basic and standard fact about groups
-such as `1 * g = g` then you can be guaranteed that this will already be
+such as `g * 1 = g` then you can be guaranteed that this will already be
 in the library. Here's a very easy way of finding the name of this
 theorem.
 -/
@@ -138,8 +139,13 @@ which we use in mathlib when naming theorems in group theory.
 Remove all the sorrys below. Either use `library_search`, or, if you're
 feeling lucky, `exact <name_I_guessed>`. 
 
-Tip : I use `sorry`s so I don't get errors. Use them yourself to fill in boring
-parts of proofs if you want to experiment and don't want errors everywhere.
+If you want to know more about the naming conventions used here, check out
+the Lean prover community website's page on theorem names in Lean:
+https://leanprover-community.github.io/contribute/naming.html
+
+Tip : I use `sorry`s in the below so I don't get errors. Use them yourself to
+fill in boring parts of proofs if you want to experiment and don't want errors
+everywhere.
 -/
 
 example : 1 * g = g :=
@@ -160,6 +166,7 @@ end
 
 -- the library tends to not have equalities or iffs where the RHS
 -- is more complicated than the left hand side.
+-- Can you use `eq.symm` and dot notation in a short term mode proof?
 example : g = g * 1 :=
 begin
   sorry
@@ -178,10 +185,25 @@ example : g⁻¹ = h → h⁻¹ = g :=
 begin
   sorry
 end
-
-
+-- What just happened?
 -- `iff.mp` means "turn `P ↔ Q` into `P → Q`". The theorem was in the
--- library, but only in the `↔` form.
+-- library, but only in the `↔` form. Check out the clever use of dot
+-- notation
+
+/-
+
+### Technical note : dot notation
+
+If you're just interested in the maths, skip this part.
+
+If `h : P ↔ Q`, i.e. if `h` is a proof of `P ↔ Q` then, because `↔` is
+actually just notation, `h` is actually a term of type `iff P Q`.
+This means that you can use "dot notation" -- for example `h.mp`
+will be interpreted by Lean as `iff.mp h`, because `iff` is the "head term"
+in the type of `h`. If you `#check iff.mp` this might be enough
+information for you to deduce that `h.mp` will be a proof of `P → Q`.
+
+-/
 
 /-
 
