@@ -1,8 +1,8 @@
 /- 
 Apache 2, because everyone else is doing it
 Written by Kevin Buzzard summer 2021 in his shed.
-Powered by `mathlib`, the leanprover-community, without which nothing
-would have happened.
+Powered by `mathlib` and the leanprover-community, without which
+nothing would have happened.
 Thanks to Leo and everyone at Microsoft Research for Lean.
 -/
 -- This imports all user tactics and a whole bunch of basic mathematics
