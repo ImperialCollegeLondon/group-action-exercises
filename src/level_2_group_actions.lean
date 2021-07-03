@@ -84,7 +84,7 @@ end
 
 /-
 
-## Section 2.2 : orbits and stabilizers
+## Section 2.2 : Orbits
 
 We can think of `•` as giving us a map `S → S` for each element of `G`.
 The *orbit* of `s : S` is what we might informally write `G • s`,
@@ -142,7 +142,9 @@ end
 
 ## Section 2.3 : orbits are a partition
 
-Equivalence classes form a partition of a type. Orbits do too. 
+Equivalence classes form a partition of a type. Orbits do too. In other
+words, an action of `G` on `S` breaks `S` up into a disjoint union
+of distinct orbits for the action.
 
 What is a partition? According to Lean, a collection `C` of subsets
 of a type `S` satisfies the predicate `is_partition C` if none of the
@@ -211,7 +213,8 @@ end
 open setoid
 
 -- This is very fiddly, I wouldn't worry too much about it, you've done
--- the maths part, the rest is plumbing
+-- the maths part, the rest is plumbing. You'll have to look up the API
+-- for `is_partition` yourself.
 example : is_partition {𝒪 : set S | ∃ s, orbit G s = 𝒪} :=
 begin
   sorry
